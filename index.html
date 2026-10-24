@@ -61,7 +61,7 @@
   }
 
   @media (max-width: 860px){
-    .yp-desktop-nav{display:none;}
+    .yp-desktop-nav{display:none !important;}
     .yp-burger{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:5px;width:44px;height:44px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
     .yp-burger span{width:22px;height:2px;background:#000;display:block;transition:transform .25s ease,opacity .25s ease;}
     .yp-mobile-nav{display:flex;position:fixed;inset:0;background:#fff;z-index:100;flex-direction:column;gap:2px;padding:84px 28px 28px;transform:translateX(100%);transition:transform .3s ease;overflow-y:auto;}
@@ -78,8 +78,7 @@
     .yp-apropos-grid img{min-height:0 !important;height:auto !important;aspect-ratio:4/3;}
     .yp-histoire-img{height:auto !important;aspect-ratio:4/3 !important;}
     .yp-avis-wrap{padding:0 6px;}
-    .yp-avis-wrap .yp-nav-prev{left:-2px !important;}
-    .yp-avis-wrap .yp-nav-next{right:-2px !important;}
+    .yp-avis-wrap .yp-nav-prev,.yp-avis-wrap .yp-nav-next{display:none;}
     .yp-footer-cols{flex-direction:column !important;align-items:flex-start !important;}
     .yp-footer-contact{text-align:left !important;}
   }
@@ -93,7 +92,7 @@
   }
 </style>
 
-<div class="yp-site" style="width: 1440px; max-width: 100%; margin: 0 auto; height: 5930px; box-sizing: border-box; background: #FFFFFF; color: #000000; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column; overflow-x: hidden;">
+<div class="yp-site" style="width: 1440px; max-width: 100%; margin: 0 auto; height: auto; box-sizing: border-box; background: #FFFFFF; color: #000000; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column; overflow-x: hidden;">
 
   <!-- Nav -->
   <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 64px; border-bottom: 1px solid var(--line);">
