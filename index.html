@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouPhone Nancy — Réparation de smartphones, tablettes & MacBook</title>
+<meta name="description" content="Réparation smartphone, tablette et MacBook à Nancy. Devis gratuit, intervention rapide, pièces de qualité. 32 rue Saint-Nicolas, Nancy.">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+  .yp-site{
+    --bg:#FFFFFF; --bg-soft:#F5F5F5; --ink:#000000; --ink-soft:#777777; --ink-faint:#6E6E6E; --line:#E5E5E5; --accent:#22780F;
+  }
+
+  :where(.yp-site), :where(.yp-site) *{box-sizing:border-box;}
+  :where(.yp-site) a{text-decoration:none;color:inherit;}
+  :where(.yp-site) img{max-width:100%;}
+  .yp-h{font-family:"Manrope",sans-serif;font-weight:800;letter-spacing:-0.015em;}
+  .yp-b{font-family:"IBM Plex Sans",sans-serif;}
+  .yp-m{font-family:"IBM Plex Mono",monospace;}
+
+  .btn-primary,.btn-secondary,.btn-accent{position:relative;overflow:hidden;border-radius:16px;font-size:15px;font-weight:600;display:inline-block;-webkit-tap-highlight-color:transparent;}
+  .btn-primary,.btn-accent{background:var(--ink);color:#fff;padding:15px 28px;}
+  .btn-secondary{background:#fff;color:var(--ink);border:1.5px solid var(--ink);padding:13.5px 28px;}
+  .btn-primary::after,.btn-accent::after,.btn-secondary::after{content:'';position:absolute;inset:0;background:var(--ink-soft);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+  .btn-primary span,.btn-accent span,.btn-secondary span{position:relative;z-index:1;}
+  @media (hover:hover) and (pointer:fine){
+    .btn-primary,.btn-accent{transition:color .3s ease;}
+    .btn-primary:hover,.btn-accent:hover{color:var(--ink);}
+    .btn-primary:hover::after,.btn-accent:hover::after{transform:scaleX(1);}
+    .btn-secondary{transition:border-color .3s ease;}
+    .btn-secondary:hover{border-color:var(--ink-soft);}
+    .btn-secondary:hover::after{transform:scaleX(1);}
+    .yp-nav-btn{transition:background .25s ease;}
+    .yp-nav-btn:hover{background:var(--line);}
+  }
+  .btn-primary:active,.btn-accent:active{color:var(--ink);}
+  .btn-primary:active::after,.btn-accent:active::after{transform:scaleX(1);transition:transform .1s ease;}
+  .btn-secondary:active{border-color:var(--ink-soft);}
+  .btn-secondary:active::after{transform:scaleX(1);transition:transform .1s ease;}
+  .btn-primary:active,.btn-secondary:active,.btn-accent:active{transform:scale(0.97);}
+  .yp-nav-btn:active{background:var(--line);transform:scale(0.95);}
+  .btn-primary:focus-visible,.btn-accent:focus-visible,.btn-secondary:focus-visible,.yp-nav-btn:focus-visible,:where(.yp-site) a:focus-visible,:where(.yp-site) label:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+
+  .yp-nav-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--ink);background:var(--bg-soft);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
+  .yp-hero-img{background-image:url('/_blob/1dbdfe9436725f7795e1665ff6950e87');background-size:cover;background-position:50% 50%;}
+
+  /* Hamburger menu (checkbox-hack, no JS) */
+  .yp-menu-toggle{display:none;}
+  .yp-burger{display:none;}
+  .yp-mobile-nav{display:none;}
+  .yp-menu-close{display:none;}
+
+  /* Nav link hover animation */
+  .yp-desktop-nav a{position:relative;}
+  .yp-desktop-nav a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+  @media (hover:hover) and (pointer:fine){
+    .yp-desktop-nav a:hover::after{transform:scaleX(1);}
+  }
+
+  @media (max-width: 860px){
+    .yp-desktop-nav{display:none;}
+    .yp-burger{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:5px;width:44px;height:44px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+    .yp-burger span{width:22px;height:2px;background:#000;display:block;transition:transform .25s ease,opacity .25s ease;}
+    .yp-mobile-nav{display:flex;position:fixed;inset:0;background:#fff;z-index:100;flex-direction:column;gap:2px;padding:84px 28px 28px;transform:translateX(100%);transition:transform .3s ease;overflow-y:auto;}
+    .yp-menu-toggle:checked ~ .yp-mobile-nav{transform:translateX(0);}
+    .yp-mobile-nav a{padding:16px 4px;font-size:17px;border-bottom:1px solid var(--line);}
+    .yp-mobile-nav .btn-accent{margin-top:16px;text-align:center;border-bottom:none;}
+    .yp-menu-close{display:flex;position:absolute;top:20px;right:20px;width:40px;height:40px;align-items:center;justify-content:center;font-size:22px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+
+    .yp-wrap{padding-left:20px !important;padding-right:20px !important;}
+    .yp-h1{font-size:34px !important;}
+    .yp-hero-grid,.yp-services-grid,.yp-apropos-grid,.yp-boutique-grid,.yp-histoire-grid,.yp-avis-grid,.yp-services-inner,.yp-apropos-features{grid-template-columns:1fr !important;}
+    .yp-stats-grid{grid-template-columns:repeat(2,1fr) !important;}
+    .yp-services-inner img,.yp-services-grid img{min-height:0 !important;height:auto !important;aspect-ratio:4/3;}
+    .yp-apropos-grid img{min-height:0 !important;height:auto !important;aspect-ratio:4/3;}
+    .yp-histoire-img{height:auto !important;aspect-ratio:4/3 !important;}
+    .yp-avis-wrap{padding:0 6px;}
+    .yp-avis-wrap .yp-nav-prev{left:-2px !important;}
+    .yp-avis-wrap .yp-nav-next{right:-2px !important;}
+    .yp-footer-cols{flex-direction:column !important;align-items:flex-start !important;}
+    .yp-footer-contact{text-align:left !important;}
+  }
+  @media (max-width: 480px){
+    .yp-stats-grid{grid-template-columns:1fr !important;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .btn-primary,.btn-accent,.btn-secondary,.btn-primary::after,.btn-accent::after,.btn-secondary::after,.yp-nav-btn,.yp-mobile-nav,.yp-burger span{transition:none !important;}
+    .btn-primary:active,.btn-accent:active,.btn-secondary:active,.yp-nav-btn:active{transform:none;}
+  }
+</style>
+
+<div class="yp-site" style="width: 1440px; max-width: 100%; margin: 0 auto; height: 5930px; box-sizing: border-box; background: #FFFFFF; color: #000000; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column; overflow-x: hidden;">
+
+  <!-- Nav -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 64px; border-bottom: 1px solid var(--line);">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span class="yp-h" style="font-size: 20px; color: var(--ink);">YouPhone</span>
+    </div>
+    <div class="yp-desktop-nav" style="display: flex; gap: 36px; font-size: 14.5px; color: var(--ink);">
+      <a href="/">Accueil</a>
+      <a href="#reparation">Réparation</a>
+      <a href="#telephones">Téléphones</a>
+      <a href="/protection-accessoires/">Accessoires</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn-accent yp-desktop-nav" style="padding: 11px 22px; font-size: 14px;"><span>Prendre rendez-vous</span></a>
+
+    <input type="checkbox" id="yp-menu-toggle" class="yp-menu-toggle">
+    <label for="yp-menu-toggle" class="yp-burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></label>
+    <nav class="yp-mobile-nav" aria-label="Menu principal">
+      <label for="yp-menu-toggle" class="yp-menu-close" aria-label="Fermer le menu">✕</label>
+      <a href="/">Accueil</a>
+      <a href="#reparation">Réparation</a>
+      <a href="#telephones">Téléphones</a>
+      <a href="/protection-accessoires/">Accessoires</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:0767984189">Appeler : 07 67 98 41 89</a>
+      <a href="#contact" class="btn-accent"><span>Prendre rendez-vous</span></a>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <div class="yp-hero-grid" style="padding: 88px 64px 96px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center;">
+    <div>
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 20px;">Réparation &amp; vente de smartphones — Nancy</div>
+      <h1 class="yp-h yp-h1" style="font-size: 54px; line-height: 1.1; margin: 0; max-width: 13ch;">Votre smartphone, entre de bonnes mains.</h1>
+      <p style="margin-top: 24px; font-size: 17px; line-height: 1.65; color: var(--ink-soft); max-width: 42ch;">Réparation, diagnostic et vente de smartphones. Un service professionnel, rapide et transparent.</p>
+      <div style="display: flex; gap: 18px; margin-top: 36px; align-items: center; flex-wrap: wrap;">
+        <a href="#reparation" class="btn-primary"><span>Découvrir nos réparations</span></a>
+        <a href="#contact" class="btn-secondary"><span>Nous contacter</span></a>
+      </div>
+    </div>
+    <div class="yp-hero-img" style="width: 100%; aspect-ratio: 1600 / 1066; border-radius: 4px; display: block;"></div>
+  </div>
+
+  <!-- Preuve sociale -->
+
+
+  <!-- Services -->
+  <div id="reparation" class="yp-wrap" style="padding: 64px 64px 0;">
+    <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px;">Réparation</div>
+    <h2 class="yp-h" style="font-size: 30px; margin: 0; max-width: 20ch;">Nos services</h2>
+    <p style="margin-top: 14px; font-size: 15px; color: var(--ink-soft); line-height: 1.65; max-width: 60ch;">Toutes marques, tous types d'appareils : smartphones, tablettes, ordinateurs et consoles.</p>
+
+    <div class="yp-services-grid" style="display: grid; grid-template-columns: 1fr 300px; gap: 48px; margin-top: 36px; align-items: start;">
+      <div class="yp-services-inner" style="display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 48px; border-top: 1px solid var(--line);">
+        <div style="display: flex; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><rect x="6" y="2" width="12" height="20" rx="2"></rect><line x1="10" y1="19" x2="14" y2="19"></line></svg>
+          <div>
+            <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Remplacement d'écran</h3>
+            <p style="font-size: 13.5px; color: var(--ink-soft); margin-top: 5px; line-height: 1.55;">Vitre ou dalle cassée, tactile qui ne répond plus.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><rect x="4" y="8" width="18" height="9" rx="2"></rect><line x1="22" y1="11" x2="22" y2="14"></line></svg>
+          <div>
+            <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Remplacement de batterie</h3>
+            <p style="font-size: 13.5px; color: var(--ink-soft); margin-top: 5px; line-height: 1.55;">Autonomie en baisse, appareil qui chauffe ou s'éteint seul.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"></path></svg>
+          <div>
+            <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Connecteur de charge</h3>
+            <p style="font-size: 13.5px; color: var(--ink-soft); margin-top: 5px; line-height: 1.55;">Ne charge plus, ou seulement par intermittence.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          <div>
+            <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Réparation caméra</h3>
+            <p style="font-size: 13.5px; color: var(--ink-soft); margin-top: 5px; line-height: 1.55;">Photo floue, module endommagé.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <div>
+            <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Diagnostic et dépannage</h3>
+            <p style="font-size: 13.5px; color: var(--ink-soft); margin-top: 5px; line-height: 1.55;">Pour identifier la panne avant toute intervention.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <div>
+            <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Transfert de données</h3>
+            <p style="font-size: 13.5px; color: var(--ink-soft); margin-top: 5px; line-height: 1.55;">Sauvegarde, récupération et configuration de votre appareil.</p>
+          </div>
+        </div>
+      </div>
+      <img src="/_blob/8e2bd99579155503ca0f809a9f946a82" alt="Réparation en atelier YouPhone — photo à remplacer" style="width: 100%; height: 100%; min-height: 460px; object-fit: cover; display: block;">
+    </div>
+
+    <p style="margin-top: 20px; font-size: 13.5px; color: #000000; line-height: 2.1; font-weight: 700">+ ordinateurs, tablettes et consoles, selon les modèles — demandez-nous. <a href="/nos-pieces/" style="color: var(--ink-soft); font-weight: 600; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px;">Pièce d'origine ou compatible : la différence →</a></p>
+
+    <div class="yp-stats-grid" style="margin-top: 40px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+      <div style="display: flex; gap: 10px; align-items: baseline;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--ink); flex-shrink: 0; margin-top: 6px; display: inline-block;"></span>
+        <span style="font-size: 13.5px;">Diagnostic gratuit</span>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: baseline;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--ink); flex-shrink: 0; margin-top: 6px; display: inline-block;"></span>
+        <span style="font-size: 13.5px;">Prix communiqué avant intervention</span>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: baseline;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--ink); flex-shrink: 0; margin-top: 6px; display: inline-block;"></span>
+        <span style="font-size: 13.5px;">Garantie jusqu'à 6 mois</span>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: baseline;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--ink); flex-shrink: 0; margin-top: 6px; display: inline-block;"></span>
+        <span style="font-size: 13.5px;">Pièce d'origine ou compatible</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Téléphones -->
+  <div id="telephones" class="yp-wrap" style="padding: 64px 64px; margin-top: 56px; background: var(--bg-soft);">
+    <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px;">Vente</div>
+    <h2 class="yp-h" style="font-size: 30px; margin: 0;">Téléphones neufs &amp; d'occasion</h2>
+    <p style="margin-top: 14px; font-size: 15px; color: var(--ink-soft); line-height: 1.65; max-width: 60ch;">Le choix évolue en permanence, surtout côté occasion : modèles, capacités et prix changent selon les arrivages. Contactez-nous ou passez en boutique pour connaître les téléphones disponibles aujourd'hui.</p>
+
+    <div style="margin-top: 32px; border: 1px solid var(--line); border-radius: 4px; padding: 32px; max-width: 640px; display: flex; align-items: center; gap: 24px; background: #fff; flex-wrap: wrap;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <div>
+        <h3 class="yp-b" style="font-size: 16px; font-weight: 600; margin: 0;">Voir les modèles disponibles</h3>
+        <p style="font-size: 14px; color: var(--ink-soft); margin-top: 6px; line-height: 1.55;">Appelez-nous ou venez en boutique : on vous indique les téléphones disponibles et leur prix.</p>
+        <div style="display: flex; gap: 14px; margin-top: 16px; flex-wrap: wrap; align-items: center;">
+          <a href="tel:0767984189" class="btn-primary" style="padding: 12px 22px; font-size: 14px;"><span>Appeler la boutique</span></a>
+          <a href="https://www.google.com/maps?cid=3783044257976889269" class="btn-secondary" style="padding: 10.5px 22px; font-size: 14px;"><span>Itinéraire</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pourquoi -->
+  <div id="avis" class="yp-wrap" style="padding: 56px 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <h2 class="yp-h" style="font-size: 27px; margin: 0 0 22px;">Ce qu'en disent nos clients</h2>
+    <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 28px;">
+      <span class="yp-h" style="font-size: 19px; font-weight: 800; color: var(--ink);">4,4</span>
+      <span style="font-size: 16px; color: #F5B400; letter-spacing: 2px;">★★★★★</span>
+      <a href="https://www.google.com/maps?cid=3783044257976889269" style="font-size: 14px; color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px;">1 333 avis Google →</a>
+    </div>
+    <div class="yp-avis-wrap" style="position: relative;">
+      <button type="button" aria-label="Avis précédents" class="yp-nav-btn yp-nav-prev" style="position: absolute; left: -18px; top: 50%; transform: translateY(-50%); z-index: 2;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+      <button type="button" aria-label="Avis suivants" class="yp-nav-btn yp-nav-next" style="position: absolute; right: -18px; top: 50%; transform: translateY(-50%); z-index: 2;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      <div class="yp-avis-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+        <div style="background: #EBEBEB; border: 1.5px solid var(--ink); padding: 28px; border-radius: 16px;">
+          <div style="color: #F5B400; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px;">★★★★★</div>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0; color: var(--ink);">« Service excellent ! Ils ont réparé très rapidement le téléphone de mon frère avec un résultat impeccable. Le rapport qualité-prix est vraiment au top. »</p>
+          <div style="margin-top: 16px; font-size: 13px; color: var(--ink-faint);">Leana Staal — avis Google</div>
+        </div>
+        <div style="background: #EBEBEB; border: 1.5px solid var(--ink); padding: 28px; border-radius: 16px;">
+          <div style="color: #F5B400; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px;">★★★★★</div>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0; color: var(--ink);">« Écran 12 Pro cassé, j'en ai eu pour 60 euros. L'écran est comme neuf, réparation rapide et personnel très professionnel. »</p>
+          <div style="margin-top: 16px; font-size: 13px; color: var(--ink-faint);">Marie Lys Santune — avis Google</div>
+        </div>
+        <div style="background: #EBEBEB; border: 1.5px solid var(--ink); padding: 28px; border-radius: 16px;">
+          <div style="color: #F5B400; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px;">★★★★★</div>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0; color: var(--ink);">« Très bon accueil. Je suis venue pour réparer mon casque Apple et ce dernier fut réparé en à peine 20 minutes. »</p>
+          <div style="margin-top: 16px; font-size: 13px; color: var(--ink-faint);">Margaux Florentin — avis Google</div>
+        </div>
+        <div style="background: #EBEBEB; border: 1.5px solid var(--ink); padding: 28px; border-radius: 16px;">
+          <div style="color: #F5B400; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px;">★★★★★</div>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0; color: var(--ink);">« Franchement, je recommande à 1000 % ! J'ai fait réparer mon téléphone chez eux et je suis vraiment super satisfait du résultat. Travail rapide, propre et surtout très professionnel. Le téléphone est comme neuf, rien à redire ! L'accueil était au top, équipe super sympa et à l'écoute, avec de très bons conseils. »</p>
+          <div style="margin-top: 16px; font-size: 13px; color: var(--ink-faint);">Dounia Merzoug — avis Google</div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 8px; margin-top: 28px;">
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--ink); display: inline-block;"></span>
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--line); display: inline-block;"></span>
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--line); display: inline-block;"></span>
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--line); display: inline-block;"></span>
+    </div>
+  </div><div id="apropos" class="yp-apropos-grid" style="background: #000000; color: #FFFFFF; display: grid; grid-template-columns: 380px 1fr; align-items: stretch;">
+    <img src="/_blob/2f67e8abd3fd05dea96bed95bb3c9a0b" alt="Expertise technique YouPhone — photo à remplacer" style="width: 100%; height: 100%; min-height: 480px; object-fit: cover; display: block;">
+    <div class="yp-wrap" style="padding: 64px;">
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 16px;">À propos</div>
+      <h2 class="yp-h" style="font-size: 30px; margin: 0; color: #FFFFFF;">Pourquoi choisir YouPhone</h2>
+
+      <div class="yp-apropos-features" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 40px; margin-top: 36px;">
+        <div>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          <h3 class="yp-b" style="font-size: 16px; font-weight: 600; margin: 14px 0 0; color: #FFFFFF;">Expertise technique</h3>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.68); margin-top: 6px; line-height: 1.6;">Atelier à Nancy depuis 2012, spécialisé jusqu'à la micro-soudure de cartes mères.</p>
+        </div>
+        <div>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <h3 class="yp-b" style="font-size: 16px; font-weight: 600; margin: 14px 0 0; color: #FFFFFF;">Diagnostic adapté</h3>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.68); margin-top: 6px; line-height: 1.6;">Un diagnostic gratuit avant toute intervention, pour chaque appareil.</p>
+        </div>
+        <div>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          <h3 class="yp-b" style="font-size: 16px; font-weight: 600; margin: 14px 0 0; color: #FFFFFF;">Conseils personnalisés</h3>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.68); margin-top: 6px; line-height: 1.6;">On vous aide à choisir entre pièce d'origine ou compatible, selon votre budget.</p>
+        </div>
+        <div>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <h3 class="yp-b" style="font-size: 16px; font-weight: 600; margin: 14px 0 0; color: #FFFFFF;">Transparence</h3>
+          <p style="font-size: 14px; color: rgba(255,255,255,0.68); margin-top: 6px; line-height: 1.6;">Le prix est toujours communiqué avant toute réparation. Aucune mauvaise surprise.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boutique -->
+  <div class="yp-wrap" style="padding: 64px; margin-top: 56px; background: var(--bg-soft);">
+    <div style="width: 100%; aspect-ratio: 1600 / 500; margin-bottom: 40px; overflow: hidden; position: relative; background: var(--bg-soft);">
+      <img src="/_blob/d7df7807b95555f3df08f24345c91edb" alt="Vitrine de la boutique YouPhone — photo à remplacer" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div class="yp-boutique-grid" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start;">
+      <div>
+        <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px;">Boutique</div>
+        <h2 class="yp-h" style="font-size: 28px; margin: 0;">YouPhone</h2>
+        <p style="margin-top: 14px; font-size: 16px; line-height: 1.6; max-width: 36ch;">32 rue Saint-Nicolas, 54000 Nancy</p>
+        <div style="display: flex; gap: 18px; margin-top: 28px; flex-wrap: wrap;">
+          <a href="https://www.google.com/maps?cid=3783044257976889269" class="btn-primary"><span>Itinéraire</span></a>
+          <a href="#contact" class="btn-secondary"><span>Nous contacter</span></a>
+        </div>
+      </div>
+      <div style="background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 26px;">
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); margin-bottom: 16px;">Infos pratiques</div>
+        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px;">
+          <span style="color: var(--ink-soft);">Lun–Jeu, Sam</span>
+          <span style="font-weight: 500;">10h–20h</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px;">
+          <span style="color: var(--ink-soft);">Vendredi</span>
+          <span style="font-weight: 500;">10h–13h / 14h–20h</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px;">
+          <span style="color: var(--ink-soft);">Dimanche</span>
+          <span style="font-weight: 500;">15h–19h</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 12px 0 0; font-size: 14px;">
+          <span style="color: var(--ink-soft);">Téléphone</span>
+          <a class="yp-m" href="tel:0767984189" style="font-weight: 500; color: var(--ink);">07 67 98 41 89</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notre histoire (teaser) -->
+  <div class="yp-wrap" style="padding: 64px; border-top: 1px solid var(--line);">
+    <div class="yp-histoire-grid" style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center;">
+      <div class="yp-histoire-img" style="height: 300px; border-radius: 4px; background-image: url('/_blob/1dbdfe9436725f7795e1665ff6950e87'); background-size: cover; background-position: 50% 50%; box-sizing: border-box;"></div>
+      <div>
+        <h2 class="yp-h" style="font-size: 28px; margin: 0;">Notre histoire</h2>
+        <p style="margin-top: 16px; font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 56ch;">YouPhone existe à Nancy depuis 2012, au 32 rue Saint-Nicolas. Au fil du temps, l'atelier s'est spécialisé dans des réparations plus techniques, comme la micro-soudure de cartes mères.</p>
+        <a href="/notre-histoire/" style="display: inline-block; margin-top: 20px; color: var(--ink); font-weight: 600; font-size: 15px; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px;">Découvrir notre histoire →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="faq" class="yp-wrap" style="padding: 64px; background: var(--bg-soft); border-top: 1px solid var(--line);">
+    <div style="max-width: 60ch; margin-bottom: 32px;">
+      <h2 class="yp-h" style="font-size: 28px; margin: 0;">Questions fréquentes</h2>
+    </div>
+    <div style="border-top: 1px solid var(--line); background: #fff; border-radius: 4px; border: 1px solid var(--line); padding: 0 28px;">
+      <div style="padding: 22px 0; border-bottom: 1px solid var(--line);">
+        <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Faut-il un rendez-vous ?</h3>
+        <p style="font-size: 14.5px; color: var(--ink-soft); margin-top: 6px; line-height: 1.55;">Non, vous pouvez vous présenter directement à la boutique, sans rendez-vous.</p>
+      </div>
+      <div style="padding: 22px 0; border-bottom: 1px solid var(--line);">
+        <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Le diagnostic est-il payant ?</h3>
+        <p style="font-size: 14.5px; color: var(--ink-soft); margin-top: 6px; line-height: 1.55;">Non, il est gratuit lorsque la réparation est faite chez nous.</p>
+      </div>
+      <div style="padding: 22px 0; border-bottom: 1px solid var(--line);">
+        <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Pièce d'origine ou compatible, quelle différence ?</h3>
+        <p style="font-size: 14.5px; color: var(--ink-soft); margin-top: 6px; line-height: 1.55;">Le choix vous appartient selon votre budget. <a href="/nos-pieces/" style="color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px;">Voir le détail →</a></p>
+      </div>
+      <div style="padding: 22px 0; border-bottom: 1px solid var(--line);">
+        <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Les réparations sont-elles garanties ?</h3>
+        <p style="font-size: 14.5px; color: var(--ink-soft); margin-top: 6px; line-height: 1.55;">Oui, jusqu'à 6 mois selon la réparation.</p>
+      </div>
+      <div style="padding: 22px 0;">
+        <h3 class="yp-b" style="font-size: 15.5px; font-weight: 600; margin: 0;">Quels appareils réparez-vous ?</h3>
+        <p style="font-size: 14.5px; color: var(--ink-soft); margin-top: 6px; line-height: 1.55;">Smartphones, tablettes, ordinateurs et consoles.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="contact" class="yp-wrap" style="margin-top: auto; padding: 48px 64px 32px; background: #FFFFFF; border-top: 1px solid var(--line);">
+    <div class="yp-footer-cols" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span class="yp-h" style="font-size: 17px; color: var(--ink);">YouPhone</span>
+      </div>
+      <div style="display: flex; gap: 28px; font-size: 13.5px; color: var(--ink-soft); flex-wrap: wrap;">
+        <a href="#reparation">Réparation</a>
+        <a href="#telephones">Téléphones</a>
+        <a href="/protection-accessoires/">Accessoires</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="yp-footer-contact" style="font-size: 13.5px; line-height: 1.9; color: var(--ink-soft); text-align: right;">
+        <div>32 rue Saint-Nicolas, 54000 Nancy</div>
+        <div class="yp-m"><a href="tel:0767984189" style="color: inherit;">07 67 98 41 89</a> — <a href="mailto:youphone54@gmail.com" style="color: inherit;">youphone54@gmail.com</a></div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-faint); flex-wrap: wrap; gap: 12px;">
+      <span>© YouPhone — IZI PHONE, SAS</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="/mentions-legales/" style="color: var(--ink-faint);">Mentions légales</a>
+        <a href="/confidentialite/" style="color: var(--ink-faint);">Confidentialité</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
